@@ -1,6 +1,7 @@
 import js from "@eslint/js";
 import tseslint from "typescript-eslint";
 import prettierConfig from "eslint-config-prettier";
+import globals from "globals";
 
 export const base = tseslint.config(
   {
@@ -15,4 +16,14 @@ export const base = tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   prettierConfig,
+  {
+    // Node-executed CJS config files (postcss.config.js, tailwind.config.js, etc.)
+    files: ["**/*.config.{js,cjs}"],
+    languageOptions: {
+      globals: globals.node,
+    },
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+    },
+  },
 );
