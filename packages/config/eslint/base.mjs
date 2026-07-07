@@ -26,4 +26,12 @@ export const base = tseslint.config(
       "@typescript-eslint/no-require-imports": "off",
     },
   },
+  {
+    // Vitest is configured with `globals: true`, so describe/it/expect/etc.
+    // are available without an import in every test file.
+    files: ["**/*.test.ts", "**/*.test.tsx"],
+    languageOptions: {
+      globals: globals.vitest,
+    },
+  },
 );
