@@ -1,4 +1,3 @@
-import { describe, expect, it } from "vitest";
 import type { z } from "zod";
 
 import { driverSchema } from "./driver";

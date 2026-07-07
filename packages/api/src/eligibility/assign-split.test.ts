@@ -1,5 +1,3 @@
-import { describe, expect, it } from "vitest";
-
 import type { SplitThresholds } from "../schemas/league";
 import { assignSplit } from "./assign-split";
 

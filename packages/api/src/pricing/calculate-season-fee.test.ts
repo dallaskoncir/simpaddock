@@ -1,5 +1,3 @@
-import { describe, expect, it } from "vitest";
-
 import { calculateSeasonFee } from "./calculate-season-fee";
 
 describe("calculateSeasonFee", () => {

@@ -1,5 +1,3 @@
-import { describe, expect, it } from "vitest";
-
 import type { League } from "../schemas/league";
 import { checkEligibility } from "./check-eligibility";
 
