@@ -120,6 +120,8 @@ After opening a pull request:
 
 ## Pull request guidance
 
+Use [pull_request_template.md](pull_request_template.md) as the structure for every PR description.
+
 Each PR should include:
 - what was implemented,
 - why it was implemented,
@@ -138,9 +140,11 @@ When helping with implementation:
 - After PR creation, stop and wait for review feedback.
 - When asked to review comments, focus only on the feedback in the PR and the changes needed to address it.
 
-## Agent skills policy
-
-Use Addy Osmani agent skills selectively. Do not load all skills at once.
+## Agent Skills Policy
+Use agent skills library selectively, keeping the context window focused:
+- **Match the Skill to the Task**: Pick whichever installed skill best fits the work at hand rather than following a fixed branch-to-skill mapping.
+- **Default to Installed Skills**: Before attempting to write custom scripts, scaffolding logic, or complex manual CLI commands, you MUST check for and utilize the installed skills from the Addy Osmani skill library.
+- **Do Not Reinvent the Wheel**: If a task (like analyzing a repo, scaffolding a component, or managing git operations) can be accomplished using an existing installed skill, you are strictly required to invoke that skill rather than doing the work from scratch.
 
 ### Default skills for this project
 
