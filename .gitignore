@@ -22,3 +22,6 @@ pnpm-debug.log*
 .DS_Store
 .vscode/*
 !.vscode/extensions.json
+
+# local Claude Code settings and session memory
+.claude/

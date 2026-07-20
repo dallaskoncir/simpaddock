@@ -195,3 +195,13 @@ For significant changes, use a dedicated `code-reviewer` subagent as an independ
    - commit any follow-up changes to the same branch
    - push
    - mark the PR as ready for re-review
+
+## Code Review Workflow
+- **Strict Role Separation**: You act as my co-author (Claude) for writing code, committing, and opening PRs. However, the GitHub account `flowlaps-ai-reviewer` is strictly used as an independent reviewer.
+- **Bot Token Usage**: When executing code reviews or posting review comments to a PR, you MUST authenticate using the `AI_BOT_GITHUB_TOKEN` environment variable so the feedback appears on GitHub as `flowlaps-ai-reviewer`. 
+- **Subagent Pattern**: When asked to review a branch, spawn a fresh, read-only subagent. The subagent must authenticate using `AI_BOT_GITHUB_TOKEN` to post its review to the GitHub PR.
+- **Review Scope**: The reviewer subagent must check for security, edge cases, error handling, tests, complexity, and quality. It must NOT modify files during the review pass.
+
+## Self-Correcting Memory
+- Before exiting a session, write a brief, 1-sentence bullet point to `.claude/memory/corrections.md` documenting any architectural mistakes, syntax errors, or workflow violations you made that I had to manually correct.
+- Always read `.claude/memory/corrections.md` at the start of every session to prevent repeating past mistakes.
